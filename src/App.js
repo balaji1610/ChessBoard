@@ -1,10 +1,16 @@
-import { Chessboard } from "react-chessboard";
 import "./App.css";
+import { useState } from "react";
+import { Chess } from "chess.js";
+import { Chessboard } from "react-chessboard";
 
 function App() {
+  const [game, setGame] = useState(new Chess());
+
   return (
-    <div className="App">
-      <Chessboard />
+    <div className="chess_Flex">
+      <div className="content">
+        <Chessboard position={game.fen()} />
+      </div>
     </div>
   );
 }

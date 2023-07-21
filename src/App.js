@@ -16,8 +16,9 @@ export default function App() {
 
   function makeRandomMove() {
     const possibleMoves = game.moves();
+    console.log(possibleMoves, "possibleMoves");
     if (game.isGameOver() || game.isDraw() || possibleMoves.length === 0)
-      return; // exit if the game is over
+      return;
     const randomIndex = Math.floor(Math.random() * possibleMoves.length);
     makeMove(possibleMoves[randomIndex]);
   }
@@ -27,10 +28,9 @@ export default function App() {
     const move = makeMove({
       from: sourceSquare,
       to: targetSquare,
-      promotion: "q", // always promote to a queen for example simplicity
+      promotion: "q",
     });
 
-    // illegal move
     if (move === null) return false;
     setTimeout(makeRandomMove, 200);
     return true;

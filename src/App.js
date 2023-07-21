@@ -6,6 +6,7 @@ import { Chessboard } from "react-chessboard";
 function App() {
   const [game, setGame] = useState(new Chess());
 
+  console.log(game.ascii(), "game");
   return (
     <div className="chess_Flex">
       <div className="content">
